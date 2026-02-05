@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swaroop Akulu Raghupathy - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #f7fafc;
+            padding: 40px 20px;
+        }
+
+        .resume-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            padding: 50px 60px;
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            /* aligns photo with title, not name */
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 20px
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: auto;
+            border-radius: 6px;
+            margin-top: 2px;
+            /* tiny tweak to match title baseline */
+        }
+
+
+        .name {
+            font-size: 30px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .title {
+            font-size: 16px;
+            color: #2563eb;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            /* 👈 stack items vertically */
+            gap: 8px;
+            font-size: 13px;
+            color: #4a5568;
+        }
+
+        .contact-info a {
+            color: #4a5568;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: #2563eb;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            /* left text, right photo */
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .profile-photo {
+            width: 110px;
+            height: auto;
+            border-radius: 6px;
+            /* or 50% for circle */
+        }
+
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a202c;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 12px 20px;
+            font-size: 14px;
+        }
+
+        .skill-category {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .skill-items {
+            color: #4a5568;
+        }
+
+        /* Experience Section */
+        .job {
+            margin-bottom: 25px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .company-title {
+            flex: 1;
+        }
+
+        .company {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .job-title {
+            font-size: 14px;
+            color: #2563eb;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .dates {
+            font-size: 13px;
+            color: #718096;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .responsibilities {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .responsibilities li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .responsibilities li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        /* Education Section */
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .degree {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .institution {
+            font-size: 13px;
+            color: #4a5568;
+            margin-top: 2px;
+        }
+
+        .edu-dates {
+            font-size: 13px;
+            color: #718096;
+            white-space: nowrap;
+        }
+
+        /* Languages Section */
+        .languages {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+        }
+
+        .language {
+            color: #4a5568;
+        }
+
+        .language strong {
+            color: #2d3748;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                padding: 40px;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 30px 25px;
+            }
+
+            .name {
+                font-size: 28px;
+            }
+
+            .job-header,
+            .education-header {
+                flex-direction: column;
+            }
+
+            .dates,
+            .edu-dates {
+                margin-top: 4px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .contact-links {
+                display: flex;
+                gap: 16px;
+                flex-wrap: wrap;
+                /* wraps nicely on small screens */
+            }
+
+            .contact-links span {
+                white-space: nowrap;
+                /* keeps icon + text together */
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="name">Swaroop Akulu Raghupathy</h1>
+
+            <div class="header-row">
+                <div class="header-text">
+                    <div class="title">
+                        Development · Operations · Cloud Platforms · Automation · Applied AI
+                    </div>
+
+                    <div class="contact-info">
+                        <span>📍 Am Oberwiesenfeld 45, 80809 München</span>
+                        <span>📞 +49-17688462544</span>
+
+                        <div class="contact-links">
+                            <span>✉️ <a href="mailto:swaroop.ar@outlook.com">swaroop.ar@outlook.com</a></span>
+                            <span>🔗 <a href="https://github.com/swaroopar"
+                                    target="_blank">github.com/swaroopar</a></span>
+                            <span>💼 <a href="https://www.linkedin.com/in/arswa"
+                                    target="_blank">linkedin.com/in/arswa</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <img src="profile-photo.png" alt="Profile photo" class="profile-photo">
+            </div>
+        </div>
+
+
+        <!-- Technical Skills -->
+        <div class="section">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">Programming</div>
+                <div class="skill-items">Java, Groovy, Python, TypeScript</div>
+
+                <div class="skill-category">Frameworks</div>
+                <div class="skill-items">Spring Boot, FastAPI, Pydantic, Pandas, Wiremock, Playwright, Spring AI</div>
+
+                <div class="skill-category">AI & Integration</div>
+                <div class="skill-items">MCP, Code Generation, Agent Frameworks, Fine tuning, Prompt Engineering</div>
+
+                <div class="skill-category">CI/CD</div>
+                <div class="skill-items">Jenkins, GitHub Actions, SonarQube, Pre-commit, AWS Toolstack</div>
+
+                <div class="skill-category">Cloud Platforms</div>
+                <div class="skill-items">AWS, Azure, Huawei Cloud, OpenStack, Private Cloud</div>
+
+                <div class="skill-category">Containers</div>
+                <div class="skill-items">Docker, Kubernetes, Docker Compose, Container Registries</div>
+
+                <div class="skill-category">Infrastructure</div>
+                <div class="skill-items">Terraform, Ansible, OpenTelemetry, ELK Stack, Splunk</div>
+
+                <div class="skill-category">Build Tools</div>
+                <div class="skill-items">Maven, Gradle, NPM, Liquibase</div>
+
+                <div class="skill-category">Integration</div>
+                <div class="skill-items">REST, SOAP, JMS, JDBC, Kafka, OAuth, HMAC</div>
+
+                <div class="skill-category">Operating Systems</div>
+                <div class="skill-items">Linux, Windows</div>
+            </div>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="section">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="company-title">
+                        <div class="company">HUAWEI, München</div>
+                        <div class="job-title">Principal Engineer – Cloud Services</div>
+                    </div>
+                    <div class="dates">Jan 2023 – Present</div>
+                </div>
+                <ul class="responsibilities">
+                    <li><i>Architected and delivered</i> fully managed PaaS and SaaS platforms across public, partner,
+                        and private clouds</li>
+                    <li>Built service management platform with Spring Boot backend, Golang agents, and React.js UI;
+                        containerized and deployed on Kubernetes</li>
+                    <li>Implemented security and identity models for managed services using OAuth, HMAC and digital
+                        signatures</li>
+                    <li>Established platform reliability through automated CI/CD, IaC (Terraform, Ansible), and
+                        observability with OpenTelemetry</li>
+                    <li>Led end-to-end SDLC ownership: solution analysis, architecture, implementation, code reviews,
+                        and public documentation</li>
+                    <li>Applied AI Research
+                        <ul class="responsibilities">
+                            <li>Develop AI agents to generate services.</li>
+                            <li>MCP server development and integration.</li>
+                            <li>Building guardrails for AI agents.</li>
+                            <li>Prompt engineering to control context size.</li>
+                            <li>Basic knowledge in training and fine-tuning LLM models</li>
+                            <li>Installing and running models locally using Ollama</li>
+                        </ul>
+                    <li>Lab Administration - Maintained computer, storage and network infrastructure.</li>
+                </ul>
+            </div>
+            <div class="job">
+                <div class="job-header">
+                    <div class="company-title">
+                        <div class="company">AIRBUS DEFENCE & SPACE, München</div>
+                        <div class="job-title">Tech Lead – Cloud/DevOps Engineering</div>
+                    </div>
+                    <div class="dates">Jan 2020 – Dec 2022</div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Developed backend services using Python and Java for data-driven and infrastructure-oriented
+                        systems</li>
+                    <li>Built RESTful APIs with FastAPI and Spring Boot; implemented secure authentication using JWT,
+                        OAuth, and LDAP</li>
+                    <li>Engineered data ingestion pipelines with Pandas for importing, validating, transforming, and
+                        mapping datacenter data with idempotent processing</li>
+                    <li>Designed cloud orchestration workflows using Camunda on Spring Boot with Groovy-based automation
+                    </li>
+                    <li>Implemented comprehensive testing strategy with WireMock integration tests and static analysis
+                        via MyPy, Black, Flake8, PyLint, and SonarQube</li>
+                    <li>Managed CI/CD automation through Jenkins pipelines, JReleaser-based CD, and infrastructure
+                        automation with Ansible (custom modules, AWX/Tower, Molecule tests)</li>
+                    <li>Led distributed engineering team with responsibility for code reviews, mentorship, and
+                        cross-team coordination</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="company-title">
+                        <div class="company">COGNIZANT TECHNOLOGY SOLUTIONS, München</div>
+                        <div class="job-title">Senior DevOps Engineer</div>
+                    </div>
+                    <div class="dates">Oct 2016 – Dec 2019</div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Automated continuous deployment of microservices, containers, and databases across environments
+                        to production</li>
+                    <li>Implemented auto-deployment for WebLogic servers and Spring Boot standalone applications</li>
+                    <li>Established CI processes and automation for application build, package, and release workflows
+                    </li>
+                    <li>Containerized applications using Docker; built, maintained, and deployed Docker images for apps
+                        and databases</li>
+                    <li>Migrated Java applications to AWS cloud infrastructure</li>
+                    <li>Developed new features for microservices and provided maintenance support</li>
+                    <li>Designed and implemented Blue-Green deployment infrastructure for microservices</li>
+                    <li>Implemented Infrastructure as Code practices and provided production 3rd level support</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="company-title">
+                        <div class="company">WIPRO TECHNOLOGIES, München</div>
+                        <div class="job-title">Test Infrastructure Engineer</div>
+                    </div>
+                    <div class="dates">Oct 2014 – Sep 2016</div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Managed change, problem, and incident management processes</li>
+                    <li>Provided operations support for applications on WebLogic, Apache, Tomcat, JBoss, Glassfish,
+                        Tibco, and Tuxedo</li>
+                    <li>Delivered OS-level support including filesystems, storage, users, and permissions management
+                    </li>
+                    <li>Performed Oracle database administration tasks and planned environment migrations across
+                        datacenters</li>
+                    <li>Supported network operations including connection matrix, firewall changes, and troubleshooting
+                    </li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="company-title">
+                        <div class="company">WIPRO TECHNOLOGIES, München</div>
+                        <div class="job-title">Oracle WebLogic Administrator</div>
+                    </div>
+                    <div class="dates">Feb 2012 – Sep 2014</div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Managed installation, upgrade, and patching of Oracle WebLogic Server across Linux, UNIX, and
+                        Windows</li>
+                    <li>Configured domain and cluster management including managed servers and failover configurations
+                    </li>
+                    <li>Automated WebLogic resources using WLST scripting</li>
+                    <li>Implemented security realms, users, and groups for application integration</li>
+                    <li>Performed JVM tuning, thread analysis, and log-based troubleshooting for performance
+                        optimization</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="company-title">
+                        <div class="company">WIPRO TECHNOLOGIES, Pune</div>
+                        <div class="job-title">Infrastructure Engineer</div>
+                    </div>
+                    <div class="dates">Jul 2009 – Jan 2012</div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Managed complex end-to-end test environments for CRM, EAI, Billing, OSS, and BSS applications
+                    </li>
+                    <li>Resolved issues via HP QC and Clarify ticketing systems; supported Siebel and PeopleSoft CRM
+                        systems</li>
+                    <li>Administered EAI applications on OraBPEL, WebLogic, and workflow systems</li>
+                    <li>Managed test data and scheduled daily automation scripts for environment verification</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Education & Certifications -->
+        <div class="section">
+            <h2 class="section-title">Education & Certifications</h2>
+
+            <div class="education-item">
+                <div class="education-header">
+                    <div>
+                        <div class="degree">Bachelor of Technology in Electronics and Communication Engineering</div>
+                        <div class="institution">Amrita University, Bengaluru</div>
+                    </div>
+                    <div class="edu-dates">2004 – 2008</div>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="degree">Professional Scrum Master (PSM1) · scrum.org · 2017</div>
+            </div>
+
+            <div class="education-item">
+                <div class="degree">Azure Fundamentals · Microsoft · 2020</div>
+            </div>
+
+            <div class="education-item">
+                <div class="degree">Azure Administrator Associate · Microsoft · 2020</div>
+            </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="section">
+            <h2 class="section-title">Languages</h2>
+            <div class="languages">
+                <div class="language"><strong>English:</strong> Fluent</div>
+                <div class="language"><strong>German:</strong> B2 Level (TELC Certified)</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
