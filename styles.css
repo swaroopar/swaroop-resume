@@ -249,6 +249,10 @@ body {
         max-width: 100%;
         page-break-inside: avoid;
     }
+
+    .technical-expertise-section {
+        page-break-before: always;
+    }
 }
 
 @media (max-width: 768px) {
