@@ -216,6 +216,21 @@ body {
     color: #2d3748;
 }
 
+.experience-stack-container {
+    text-align: center;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.experience-stack-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    max-height: fit-content;
+    
+}
+
 
 @media print {
     body {
@@ -227,6 +242,16 @@ body {
         box-shadow: none;
         padding: 40px;
         max-width: 100%;
+    }
+
+    .experience-stack-img {
+        box-shadow: none;
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+
+    .technical-expertise-section {
+        page-break-before: always;
     }
 }
 
